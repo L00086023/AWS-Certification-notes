@@ -1,0 +1,771 @@
+Directory
+Module 1 Introduction to Amazon Web Services
+
+Module 2: AWS Compute(Lessons 15-22)
+Module 3:AWS NETWORKING(Lessons 24-28)
+Module 4: AWS STORAGE (Lessons 30-34)
+Module 5: AWS DATABASES (Lessons 36-42)
+Module 6 : MONITORING,OPTOMIZATION,AND SERVERLESS (Lessons 43-51)]
+**********************************************************************************************
+                            AWS COMPUTE
+Lesson 5 -What is AWS?
+Lesson 6 AWS Global I9nfrastructure
+Lesson 7 Interacting with AWS
+Lesson 8 Security and the AWS Shared Responsibility Modelbn
+Lesson 9 Protect the AWS  Root User
+Lesson 10 AWS Identity and Access Managment
+Lesson 11 Role-Based Access in AWS
+Lesson 12 Dwemonstration:Implement security with AWS Identity and Access Managment(IAM)
+Lesson 13 Employee Directory Application Hosting
+Lesson 14 Module 1 Knowledge Check
+Lesson 15 What is Amazon EC2?
+Lesson 16 Amazon Elasatic Compute Cloud
+Lesson 17 Amazon EC2 Instance Lifestyle
+Lesson 18 Demonstration:Launch the Employee Directory Application on Amazon EC2
+Lesson 19 Container Services
+Lesson 20
+Lesson 21 AWS Lambda
+Lesson 22 Choose the right Compute Services 
+Lesson 23 Module 2 Knowledge Check  
+_________________________________________________________________________________________________________________________
+
+************************************ MODULE 3: AWS NETWORKING(Lessons 24-28)*********************************************************
+Lesson 24 Networking
+Lesson 25 Amazon Virtual Private Cloud
+Lesson 26 Amazon VPC Routing
+Lesson 27 Amazon VPC Security
+Lesson 28 Demonstration:Create a VPC and Relaunch the Corporate Directory Application in Amazon EC2
+Lesson 29 Module 3 Knowledge Check
+_____________________________________________________________________________________________________________________________________________________
+
+***********************************MODULE 4: AWS STORAGE (Lessons 30-34)**************************************************************************
+Lesson 30 Storage Types 
+Lesson 31 Amazon EC2 Instance Storage and Amazon Elastic Block Storage(EBS)
+Lesson 32 Object Storage with Amazon Simple Storage Service(S3)
+Lesson 33 Choose the right Storage Service
+Lesson 34 Demonstration: Create an Amazon S3 bucket
+Lesson 35 Module 4 Knowledge Check
+____________________________________________________________________________________________________________________________________________________________________________
+
+****************************MODULE 5:DATABASES(Lessons 36-42)*******************************************************************************************
+Lesson 36 
+Lesson 37 
+Lesson 38 
+Lesson 39 
+Lesson 40 
+Lesson 41 
+Lesson 42 
+
+
+__________________________________________________________________________________________________________________________________________________________________________________
+
+*******************************************MODULE 6:MONITORING,OPTOMIZATION,AND SERVERLESS (Lessons 43-51)*********************************************************************
+
+Lesson 43 
+Lesson 44 
+Lesson 45 
+Lesson 46 
+Lesson 47 
+Lesson 48 
+Lesson 49 
+Lesson 50 
+Lesson 51 
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+Lesson 5 - What is AWS?
+Q: What is Cloud Computing?
+A: Cloud computing is on-demand delivery of IT  resources over the internet.
+
+Q:What are the advantages to users of using Cloud Compute Services?
+A: Companies do not have to manage and maintain their own hardware and data centres.
+
+Q:The six advantages of Cloud Computing
+
+  A:                 -Pay as you go :Pay only when you use computing services.
+                    -Economies of scale
+                   -Stop guessing capacity
+                   -Increase speed and agility
+                   -Realize cost savings
+                   -Go global in minutes
+
+**************************************************************************************************
+
+Lesson 6 - AWS Global Infrastructure
+
+Q:Describe an AWS Region
+A: An AWS Region is a geographical location where AWS hosts its data centres.
+                -AWS Regions are independent from one another.
+                -Data is not replicated from one region to another without explicit customer consent and authourization.
+
+
+
+Q:When deciding which Region to host applications and workloads what are the four main aspects to consider?
+A: The four main aspects to consider are:
+                                        -Latency
+                                         -Price
+                                         -Service availability
+                                          -Compliance
+Q: What is an Availibility Zone?
+A:Availibility Zones are located within Regions and consist of one or more data centres  with redundant power, networking and connectivity.They are connected using redundant high-speed and low latency links.
+
+********************************************************************************************************************************************
+       
+
+Lesson 7 -Interacting with AWS
+
+Q: How does a user access AWS services?
+A:User actions are made in the form of API calls which are authenticated and authourized. The API  calls can be made through the following;
+                               - AWS Managment Console
+                                -AWS Command Line Inteface(AWS CLI)
+                               - AWS Software Development Kits (SDK's)
+
+*******************************************************************************************************************************************
+
+Lesson 8 -Security and the AWS Shared Responsibility Model
+
+Q: Which elements of security is AWS  responsible for?(Ther is another Q&A  in the list that gives a better explenation than this)  
+A:AWS is responsible for protecting and securing AWS Regions,Availability Zones, data centres including the physical security of the buildings.
+  AWS  is also responsible for managing the hardware,software and networking components that run AWS services.
+
+Q: What are the classes of AWS  services?
+A: -Infrastructure services:Compute services such as Amazon  EC2
+   - Container services : eg Amazon RDS
+   -Abstracted services: eg Amazon S3
+
+Q:What is the customer responsibility?
+A: Customers maintain complete control of their data and are responsible for managing the security  related to their content, as follows
+   - Choosing a Region
+   -Implementing data-protection mechanisms
+   -Using access control to limit who has access to customer data and AWS resources.
+*************************************************************************************************************************
+Lesson 9 -Protect the AWS Root User
+
+**************************************************************************************************************************
+
+Lesson 10 -AWS Identity and Access Managment(IAM)
+Q: Describe AWS Identity and Access Managment(IAM)
+A: IAM  is used to regulate who has access to the accouunt(authentication) and who has permission to use and work with the account's resources(authorization)
+
+Q: What is Identity Federation?
+A:Identity Federation allows users who already have passwords elsewhere in a corporate  network or with an internet identity provider to get temporary access to a user AWS  account.
+
+Q:Define what is meant by an IAM user
+A:An IAM user repersents a person or service that interacts with AWS.
+
+Q:What is an IAM  group?
+A:An IAM  group is a collection of users.
+
+Q:Describe an IAM  group.
+A:All users in the group inherit the permissions assigned to the group.
+  As its possible to give permissions to multiple users at once by adding tmem to the group,
+  this is a convient and scalable way of managing permissions.
+
+Q: What is an IAM policy?
+A: An IAM policy is a means of managing access and providing permission to the AWS service and resources.
+
+Q:Describe an IAM policy.
+A:Policies are stored in AWS as JSON  documents.
+This is an example of a policy
+
+{
+"Version": "2012-10-17",
+"Statement": [{
+"Effect": "Allow",
+"Action": "*",
+"Resource": "*",
+}]
+
+}
+
+*****************************************************************************************************************************************
+Lesson 11 -Role-Based Access in AWS
+Q: Describe the principle of least privilage.
+A: Only the necessary permissions to do a job should be granted.
+
+**********************************************************************************************************************
+
+Lesson 12 Demonstration:Implement security with AWS Identity and Access Managment(IAM)
+
+****************************************************************************************************
+
+Lesson 13 - Employee Directory Application Hosting
+
+*******************************************************************************************************
+
+Module 2:AWS COMPUTE
+Lesson 15 - Compute as a Service
+*****************************************************************************************************
+
+Lesson 16 - Amazon Elastic Cloud Compute
+
+Q:What is an Amazon EC2?
+A: Amazon EC2  is a webc service which provides secure, resizable compute capacity in the cloud.
+
+************************************************************************************
+
+Lesson 17 -Amazon EC2 Instance Lifecycle
+
+Q:Describe an Amazon EC2 instance
+A: An EC2  instance is a combination of virtual  processor (vCPUs),memory,network and in some cases storage and graphics processing units (GPUs)
+
+Q:Describe an EC2 instance type.
+A: The .c5 large belongs to the 5th generation of instances in an instance family. The c stands for compute-optomized.
+   Large determines the aount of instance capacity.
+
+Q:List the Instance Family types available.
+A: The Instance Family types available are:
+                                            -General Purpose:
+                                             -Compute Optomized
+                                            -Memory Optomized
+                                            -Accelerated Optomized
+
+Q:Where are EC2 Iinstances located?
+A: EC2 instances are located within the Amazon Virtual Private Cloud(Amazon VPC)
+
+Q:What should the user be aware of when using a VPC?
+A: Any resource placed inside  the default VPC is visible and accessible by the internet.The default setting on VPC's can be changed in order to restrict access.
+
+Q:List the possible states of an EC2 instance.
+A:Pending,Running,Rebooting,Terminate
+
+
+Q:What is the difference between an EC2 instance in the stopped state and an instance which has stopped?
+A:An instance in the stopped state can have its attributes(data fields) modified.An instance which has stopped loses all its data.
+
+Q:Describe stop-hibernate of an EC2 instance.
+A:An EC2  instance which is in the stop-hibernate state has saved the contents of the instance to the Amazon EBS  root volume.
+
+Q:What are the three pricing options for the EC2 instances?
+A: The three pricing options are:
+                                 -On-demand:
+                                  -Reserved: They are cheaper than On-Demand, The user must choose a subscription.The choices are :All Upfront,Partial Upfronr or No Upfront, a 1 to 3-year term can be selected.
+
+                                 -Spot instances: A Spot Instance  allows a user to take advanntage of unused EC2 capacity in the AWS Cloud.The EC2's are available at 90% discount compared to On-Demand prices.
+
+Q:What should be considered when selecting Spot Instances EC2's?
+A:A Spot Instance can be interrupted if AWS determines that the capacity is no longer available or if the Spot price exceeds what the user is willing to pay.AWS will give a 2-minute warning before it interrupts the instance.
+
+Q:What are suitable workloads for Spot Instance EC's?
+A: Suitable workloads are:
+                         -Big Data,
+                         -Containarized Workloads,
+                         -CI/CD, 
+                          -Web Servers,
+                          -High Performance Computing(HPC), 
+                          -Image and Media rendering,
+
+*********************************************************************************************************************************************************
+Lesson 18 -Demonstration : Launch the Employee Directory Application on Amazon EC2
+
+*********************************************************************************************************************************
+
+Lesson 19 -Container Services
+Q:What are the three main categories of compute?
+A:The three main categories of compute are:
+                                          - Virtual Machines(VM's)
+                                          -Containers
+                                          -Serverless
+
+Q:What is a Container?
+A: A Container is a standard unit of software that packages up code and all its dependencies so that an applicationruns quickly and reliably from  one computing environment to another.
+
+Q: What is the difference between a Container and a VM?
+A: A Container shares the same OS  and Kernel as the host that it existes on. A VM  contains its own OS.Evewry VM must maintaine a copy of the OS, resulting in wasted resources.
+
+Q:What are the benefits of Containers?
+A: A Container spinsup almost instantly but does not provide the access to resources that a VM  does.
+
+Q:What type of Container Orchestration service does AWS  offer?
+A:Amazon Elastic Container Service(ECS) and  Amazon Elastic Kubernets Service(EKS)
+
+Q:How are Containers managed?
+A:The user installs them on an EC2.The instance is then referred to as a Container Instance.
+
+Q:What is a Task Defenition?
+A:A Task Defenition is a text file in JSON format that describes one or more Containers.
+
+Q: Give an example of a Task Definition
+A: This is a simple Task Definition
+       {
+"family":"webserver",
+"containerDefinitions":[{
+"name": "web",
+"image":"nginx",
+"mermory": "100",
+"cpu": "99"
+}]
+"requiresCompatibilities": ["FARGATE"],
+"networkMode": "awsvpc",
+"memory": "512",
+"cpu": "256"
+
+
+}
+
+Q:Describe Amazon Elastic Kubernets Service(Amazon EKS)
+A: It is a Container for managing workloads.It brings Development and Deployment together ie CI/CD 
+*********************************************************************************************************************************************************
+Lesson 20 
+**************************************************************************************************************************************************************
+Lesson 21 - AWS Lambda
+Q: What is AWS Lambda?
+A:AWS Lambda is a serverless compute option.The availability,scaling and managment of servers is done automatically without user input.
+
+Q:What is AWS Fargate?
+A:AWS Fargate is another serverless compute option built for ECS and EKS containers.ECS and EKS can be run in AWS Fargate mode  or EC2 mode.
+
+Q:What does Fargate do?
+A:Fargate abstracts the EC2 instance, it scales and manages infrastructure.
+
+Q:What else does Fargate do?
+A:Fargate allows the user to access ECS primitives,API's and AWS integrations.Fargate integrates with AWS IAM and Amazon VPC.
+
+Q:Describe the primary components of a Lambda function.
+A:The three main components  of a Lambda function are :
+                                                       Trigger:An event which calls a Lambda function which contains the user defined/blueprint code which runsin response to the trigger.
+                                                        Code: Hand built code or use a blueprint/template code provided by AWS.
+                                                        Configuration:The user needs to state to the network placement,environmental variables, memory,invocation type,permission sets and other configuration items.
+
+Q:Describe the Lambda function naming convention.
+A:The Lambda function name is made up of the file in which it is created and the function name itself.  
+
+Q:How are charges applied to Lambda functions?
+A:Charges are applied each time the function is triggered and the length of time that the code runs for,rounded to the nearest 1ms(duration)
+
+****************************************************************************************************************************************************************************
+
+Lesson 22 - Choose the right Compute Service
+
+Video only in this section.No text material available.
+************************************************************************************************************************************************************
+
+Lesson 23 -Module  2 Knowledge Check
+
+******************************************************************************************************************************************************************************* 
+________________________________________________________________________________________________________________________
+
+************************************ MODULE 3: AWS NETWORKING(Lessons 24-28)*********************************************************
+Lesson 24 
+         Q:What is Networking?
+         A:Networking is how computers connect to each other?
+
+
+         Q: What is CIDR notation?
+         A: Classless Inter-Domain Routing
+Lesson 25 -  Amazon Virtual Private Cloud
+         Q: What does an Internet Gateway do?
+         A:An Interent Gateway connects a computer to the Internet.
+
+        
+Lesson 26  Amazon VPC  Routing?
+         Q: What is a Routing Table?
+         A: A Routing Table contains a set of rules called routes that are used to determine where network traffic is directed.
+
+         Q:What is the default configuration of a main route table?
+         A: The default configuration of a main route tablke is to allow traffic between all subnets in a local network.
+
+         Q:What happens if a user creates a custom Route Table?
+         A: The subnet will use the custom route table.
+
+        Q:What are the two main parts of a Route Table?
+        A: The two main parts of a Route Table are:
+                                                    The Destination: This is the range of IP Addresses that the traffic is sent to.
+                                                    The Target: The Connection through which the traffic is sent ie a local VPC.
+
+
+Lesson 27  Amazon VPC Security
+       Q: What is the purpose of a Network Access Control List(network ACL)?
+       A:The purpose of a Network ACL  is to control the type of traffic that is allowed to venter or leave a subnet.
+      
+
+       Q: What is a default networkv ACL?
+       A: A default ACL  allows all traffic in and out of thew subnet.
+
+       Q: Why are network ACL's considered stateless?
+       A: An ACL has no memory of the inbound and outbound ports used,traffic could come into vthe ACL  but it would never leave.
+
+      Q: What is the security layer of an EC2 	instance called?
+      A: The security layer of an EC2  instance is known as a security group.
+
+      Q: What is the default configuration of a security group?
+      A: The default configuration of a security groups blocks all inbound traffic and allows all outbound traffic.
+
+     Q: Security groups are stateful, what does this mean?
+     A: The security group remembers if a connection is initiated by an EC2 instance or from the outside and temporarily allows traffic to respoind without modifying the inbound rules.
+
+     Q:How can security groups be used to segerate traffic between computers in a network?
+     A: Resources can be organized into different groups and a security group created to control network communications between them.
+
+    An example of how  Security Groups are used to isolate different tiers of resources is illustrated using a diagram.Each tier has its own Security Group with its ownj rules as to what can pass in and out.
+
+     Q:How do AWS security groups differ from traditional on-premises environments?
+     A:An AWS Security Group achives resource isolation without tying itself to the nwtwork.
+******************************************************************************************************************************************************************************************
+Lesson 28 Demonstration: Create a VPC and relaunch the Corporet Directory Application inAmazon EC2
+
+Only a video in this section,no text.
+***********************************************************************************************************************************************************************
+
+
+Lesson 29 Module 3 Knowledge Check
+Q:What information is needed to create a  VPC?
+A: The information needed to create a VPC is:
+                                             1 :The AWS Region it will reside in.
+                                             2: The VPC's IP range 
+                                             3: The VPC's name which must be specified.
+
+Q: What is true of a security groups default settings?
+A:All Inbound traffic is blocked and all Outbound traffic is allowed.
+
+
+Q: What is the purpose of a Network Access Control list(Network ACL)?
+A:The network ACL secures subnets.
+
+Q:What is the purpose of a Security Group?
+A:The purpose of a Security Group is to secure EC2  instances
+
+******************************************************************************************************************
+
+
+
+_____________________________________________________________________________________________________________________________________________________
+
+***********************************MODULE 4: AWS STORAGE (Lessons 30-34)**************************************************************************
+
+Lesson 30 Storage types
+                        Q: How are AWS Storage Services Grouped?
+                        A: AWS Storage Services are grouped into three catogories
+                                                                                - block storage
+                                                                                              Files are split into fixed sized chunks called blocks that have their own                                                                                                addressed. The blocks do not have any other metadata other than their address.
+                                                                                         Block storage solutions are fast and use less bandwith.
+                                                                                     Block storage is analagous to direct-attached storage(DAS) or a Storage Area Network(SAN)
+
+
+                                                                               -file storage
+                                                                                           Typically shared across multiple hosts,requires file locking and integration with                                                                                             existing file system communication protocols. File systems are often supported                                                                                            with a Network Attached Storage (NAS)
+
+
+                                                                               -object storage
+                                                                                              Objects are treated as single units of data and stored in a flat structure                                                                                               instead of a hierarchy .Each object has a unique identifier.
+
+Q:What are the advantages of AWS Storage solutions in comparison to traditional on-premises data storage?
+A: AWS  storage solutions can be created ,delete and modified in a few minutes.
+_____________________________________________________________________________________________________________
+
+
+Lesson 31 Amazon EC2 Instance Storage and Amazon Elastic Block Storage(EBS)
+   Q: What is the function of the Amazon EC2  Instance Store?
+   A: The Amazon EC2 store provides temporary block-level storage to an instance.If the instance is deleted, the instance store is deleted as well.Due to this the Instance store is considered ephemeral storage.
+
+  Q: What is the ideal uses of the Instance store?
+A: Hadoop clusters which replicate data to other EC2  instanceS are ideal for Instance store. Instance store is also ideal for the storage of information that changes rapidly such as buffers, caches, scratch data and similar temproary content.
+
+Q:Describe Amazon Block Storage(EBS)
+A:Amazon EBS is a block level storage analogous to an external hard drive that can be attached to an Amazon EC2.
+
+Q: What are the limitations of an Amazon EBS?
+A: An EBS can only be connected to one computere at a time.EBS  volumes cannot be shared or attached to multiple instances at one time.
+
+Q:Describe other features of Amazon EBS.
+A:An EBS volume can be detached from one EC2 and attached to another EC2  in the same AZ.
+
+Q:Describe a recent development with Amazon EBS volumes.
+A:The Amazon multi-attach feature enables volumes to be attached to multiple EC2's instances at one time.
+
+
+Q:What happens to thrEBS volume if the computer crashes?
+A:VData on the EBS  volume is preserved.
+
+
+Q What is the maximum amount of storage  possible for an EBS  volume?
+A: The maximum storage for an EBS is  16TB
+
+
+Q: Can several EBS  volumes be attached to a single EC2C instance? 
+A:Yes, anEC2 instance has a 1-to-many relationship with EBS volumes.
+
+Q: In which scenarios are EBS volumes best used?
+A: EBS  volumes can be used to store:
+                                    - the Operating System  
+                                    - Databases
+                                    - Enterprise Applications
+                                    -Throughput-intensive applications:Applications that perform long, continious read and writes.
+
+Q: List the different types of EBS volumes available.
+A: -EBS Provisioned IOPS SSD
+   -EBS General Purpose SSD
+   -Throughp[ut Optomized
+   - Cold HDD
+
+Q:How can Amazon EBS  volumes be scaled?
+A: A single EBS  volume can be scaled to a maximum of 16TB
+  - It is  possible to attach several(?) EBS  volumes to a single EC2  instance.
+  - The EBS volumes can be added during or after the EC2 instance creation. 
+
+Q:What are the benefits of using Amazon EBS?
+A:The benefits of using Amazon EBS are:
+                                       - High Availability
+                                       - Data Encryption
+                                       -Data Percistance
+                                       -Flexibility: The volumes can be modified in real time/on-the-fly without stopping the instance.
+                                       -Backups Amazon EBS provides the ability to create bacvkups of any EBS volume.
+
+Q: Describe an EBS snapshot.
+A:An AWS snapshot is an incremental backup of data that has changed after ther most recent snapshot.
+
+Q:Where are EBS  snapshots stored?
+A: EBS  snapshots are stored in multtiple AZ's
+********************************************************************************************************************* 
+
+Lesson 32 Object Storage with Amazon Simple Storage Service(S3)
+       Q: What is Amazon Simple Storage(S3)?
+        A: S3  is an object storage service.
+           Each object has a unique identifier which can be used to look up objects when requested.
+
+       Q: What is an Amazon  S3 Bucket?
+       A: An S3 Bucket is a container space in which objects such as photos can be stored.
+
+       Q: What's the minimal requirement to create a Bucket?
+       A: The minimal requirement to create an S3 Bucket is an AWS Region in which the Bucket is to reside and a Bucket name.
+
+       Q:Describe an AWS  S3 Bucket.
+       A: The Bucket name must beunique across all AWS accounts.
+          Once created the Bucket will be stored across multiple AZ's.
+          Folders stored within the Bucket can be stored in a standard hierarchy, however this is an abstraction, in reality each file is an object.
+
+     Q: List the most common uses of S3 Buckets.
+       A:  -Media hosting
+         -Software delivery
+         -Data Lakes
+         -Static  websites
+         -Static content
+
+        Q:Describe privacy in Amazon S3.
+        A: Everything in Amazon S3  is private by default.
+           All S3  resources such as Buckets, folders and objects can only be viewed by the user or AWS  account that created the resource.
+     
+
+        Q:How is access provided to Amazon S3 resources?
+        A: Access is provided using an  IAM  policy or an S3 Bucket policy
+
+
+        Q: When should IAM  policy be used?
+        A: - If the user has many buckets with different permission requirements.
+             -If the user wants all policys to be in a centralized location.
+             - Having the IAM  policy centralized allows the user  to manage all policy information in one place.
+
+        Q:Describe an Amazon S3 Bucket policy.
+        A:An Amazon S3 Bucket policy is defined in a JSON  format.
+
+        Q:What is the difference between IAM  policies  and S3 Bucket policys?
+        A: IAM policies are attached to users,groups and roles wheras S3 bucket policies are only attached to S3 buckets.
+
+        Q: What does an S3 bucket policy specify?
+        A: An S3 Bucket policy specifies the actions that are allowed or denied on a bucket.
+
+       Q: Give an example of an S3 bucket policy.
+       A: {
+           "Version": "2012-10-17",
+           "Statement":[{
+           "Sid":"PublicRead",
+           "Effect":"Allow",
+           "Principle":["s3:GetObject"],
+           "Resource":["arn:aws:s3:::employeebucket/*"]
+           }]
+           }
+
+
+
+     Q: How does Amazon S3  encryption protect data?
+     A: -Server-side encryption (There is a longer more detailed answer to this on the AWS-Certificate/Storage Design notes)
+        -Client-side encryption (There is a longer more detailed answer to this on the AWS-Certificate/Storage Design notes)
+
+     Q: What is S3 versioning?
+     A: S3 Versioning is a way o0f keeping multiple versions of a single object in the same bucket.Vewrsioning can be enabled on S3 Buckets.
+   
+
+    Q:What are the Versioning states?
+    A: - Unversioned (default)
+       -Versioning-enabled
+       -Versioning-suspended
+    Q:What is the Amazon S3 Standard Storage class?
+    A:Amazon S3 Storage class is the default storage class, often referred to as standard storage.
+
+   Q:List the 6 classes of Amazon S3  storage.
+   A: Amazon S3 Standard:General Purpose storage for Cloud applications.
+      Amazon S3 Intellegent Tiering: Useful if data has unknown or changing access patterns.
+     Amazon Standard Infrequent Access(S3 One Zone-1A) Data is stored in a single AZ  and costs 20% less.
+     Amazon S3 Glacier:Data Archiving.
+     Amazon S3 Glacier Deep Archive: The lowest cost S3 storage class.Designjed for data that might be accessed once or twice a year.It's designed for highly regulated      industrys such as Banking/Finance/Healthcare
+
+
+   Q:How are frequent changes to objects in a bucket managed?
+   A:Frequent changes are managed by automating the process with a lifecycle policy for an object or group of objects.
+
+   Q: When defining a lifecycle policy for an object which action must be selected?
+   A: One or two actons can be chosen: Transition or Expiration
+     - Transition: Defines when the object should transition to another storage class.
+     - Expiration: Defines when an object expires and should be permenatly deleted.
+    
+   Q: Give example of good candidates for lifecycle management.
+   A: Good candidates for Lifecycle Management are :
+                                                   -Periodic logs:
+                                                   - Data that changes in access frequently.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Lesson 33 Choose the right Storage Service
+ This is a summary of Amazon S3 Storage Services
+-Amazon  EC2 store: Ephemeral block store
+-Amazon EBS:Designed for data  that changes frequently and needs to persist, analagous to an external hard drive.
+Amazon S3: Scalable Storage Solutions.
+Amazon Elastic File System(Amazon EFS):A file system that can mount  on multiple EC2 instances.Supports NFS file system.
+
+Amazon FSx: Built on Windows Server,A file system that can mount on multiple EC2 instances supports  SMB  protocol.
+***********************************************************************************************************************
+
+Lesson 34 Demonstration: Create an Amazon S3 bucket
+Video only.No text.
+***************************************************************************************************
+Lesson 35 Module 4 Knowledge Check
+Q: What is a typical use case for Amazon Simple Storage Service(Amazon S3)?
+A:Object storage for media hosting.
+
+Q:Should Bucket names be unique across all Amazon accounts?
+A:Yes
+
+Q:What is the best storage option for healthcare/patient information which must be stored for 7 years.The data will rarley be accessed.
+A:S3 Glacier Deep Archive 
+
+
+**************************************************************************************************
+
+____________________________________________________________________________________________________________________________________________________________________________
+
+****************************MODULE 5:DATABASES(Lessons 36-42)*******************************************************************************************
+Lesson 36 - Databases on AWS
+This Lesson is a description of what a Relational Database is,how it's structured and what it does.
+
+*******************************************************************************************************************
+Lesson 37 -Amazon Relational Database Service(Amazon RDS)
+Q:What is the Amazon Relational Database Service?
+A: The Amazon RDS is a relational database in the CAloud which customers can access without the operationsal burden of traditional database management.
+
+Q:Which RDBMS  types does Amazon RDS  support?
+A: -Commercial:Oracle,SQL Server
+   -Open Source:MySQL,PostgreSQL,MariaDB
+   Cloud Native:Amazon Aurora
+
+Q:What is Amazon Aurora?
+A:Amazon Aurora is the cloud native database option.
+
+Q:Which database types does Aurora support?
+A:Aurora is available as MySQL or PostgreSQL  implementations.
+
+Q:What are the storage options available to an RDS DB  instance.
+A:A DB  instance uses Amazon Block Store (EBS) volumes as its storage layer.The EBS storage layers are:
+   -General Purpose (SSD)
+
+   - Provisioned IOPS (SSD)
+    -Magentic Storage(not recommended)
+
+Q:List the steps involved when creating an Amazon RDS DB  instance.
+A: -Select  the Amazon Virtual Private Cloud(VPC)
+   -Select the subnets that the DB  instances are to reside in. This is referred to as a DB  subnet group.
+   -Select the AZ that includes the subnets to be added.
+   -Subnets in the AZ  where the DB  instances are placed.
+
+Q: Why should subnets be private?
+A:There is no route to the internet gateway and the data in the DB  can only be reached by the app backend.
+
+Q:How can access to a DB instance be further restricted?
+A:Access to a DB  instasnce can be further restricted using network ACL's and security groups.
+
+Q:How can an RDS  instance data be backedup?
+Q:Data can be backedup:
+                       -Automatic backup, this is switched on by default.
+                       -Manual snapshots.
+
+
+Q:Why should automatic backups not be set to zero days?
+A:Setting an automatic backup to zero days disables the automatic backup from happening. It will also delete all existing basckups.
+
+Q:What is the benefit of having automatic backups?
+A:The benefit of automated backups is that Point-in-time recovery is then possible.
+
+Q:What is a Point-in-Time recovery?
+A:Point-in-time recovery is recovering data from a specific point in time.
+
+Q:How long can automated backups be retained for?
+A:An automated backup can be retained between 0 and 35 days.
+
+Q:How are Manual snapshots managed?
+A:Manual snapshots are managed through the Amazon console.
+
+Q:How is redundancy managed with RDS Multi-AZ?
+A:When an Amazon multi-AZ  is enabled a redundant(shadow) copy of the database is also created.
+ The Primary Copy of the database  exists  in a subnet in one AZ and the standby  copy in a subnet in another AZ.
+
+Q:What happens if the Primary Copy of the database loses connectivity?
+A:If availability issues arise,Amazon RDS  triggers an automatic failover.
+
+Q:What is p-rovided by AWS when a DB  instance is created?
+A:A Domain Name System(DNS)  is provided by AWS.In the event of a loss of connerctivity, AWS   uses the DNS  name to failopver to the standby instance.
+
+Q:What should the iuser esure when using muliple and standby copies of databases?
+A:The user must ensure that the subnetsin which the DB  instances are placed are in different AZ's.
+
+************************************************************************************************************************************************************* 
+
+
+
+Lesson 38 
+Lesson 39 
+Lesson 40 
+Lesson 41 
+Lesson 42 
+
+
+__________________________________________________________________________________________________________________________________________________________________________________
+
+*******************************************MODULE 6:MONITORING,OPTOMIZATION,AND SERVERLESS (Lessons 43-51)*********************************************************************
+
+Lesson 43 
+Lesson 44 
+Lesson 45 
+Lesson 46 
+Lesson 47 
+Lesson 48 
+Lesson 49 
+Lesson 50 
+Lesson 51 
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+ 
+                                                          
+
+
+
+
+
+
+
+
+
+
+Test and Development workloads.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,512 @@
+Glossary
+
+NAS Network Attached Storage(NAS) : A storage device connected to a network that allows storage and retreival of data from a centeralized locatin for authorized network users and hetrogenoous clients.NAS  is scalable
+
+iSCSI = Internet Small Computer Systems Interface
+***********************************************************ITEM 1 ********************************************************
+                  Exam Tips: AWS Certified Solutions Architect - Associate (SAA-C02)
+
+*************************************************************Introduction******************************************************
+AWS Solution Architect(00:58s)
+
+1.AWS Overview
+
+What is AWS? (3m 18s)
+
+Why use AWS? (2m 36s)
+
+How to get started with AWS (4m 25s)
+
+2 AWS Certification Overview
+AWS  certifications (3m 50s)
+
+Preperation resources (1m 45s)
+
+Benefits of certification(2m 20s)
+
+
+3.AWS Certified Solutrions Architect-Associate
+AWS CSA-A overview (4m 26s)
+
+What's newe on the 2020 updated examn? (3m 18s)
+
+AWS CSA-A exam objectives(5m 59s)
+
+The four key areas:Compute,networking,storage and databases.(3m 33s)
+
+
+4.How to Get Certified
+Master thev knowledge areas(1m 53s)
+
+Q:What is does the exam test?
+A:It tests the candidate's ability to  designing the structure of AWS services that meet the needs of the organization. Its not a Developer exam and there is no emphasis on things such as AWS API's.
+
+Use the system(4m 45s)
+-Learn the concepts:What is an S3 bucket/EC2,RDS instance
+- Learn the process ie How do I implement an S3 bucket?
+-Learn the application of both.
+Learn the above and then get into the AWS Account and pratcice using what has been learned.
+
+-Create the account(Done)
+- Use thew Free Tier
+- Create S3 BUCKETS,VPCs,subnets,security groups,NACLs,EC2 instances,databases,
+-Use the online AWS Documentation: Guides(Get Started guides) and API References Warning AWS Documentation is updated continually.
+
+Take notes(2m 45s)
+This is what the speaker suggests:
+                                 - Full sentences
+                                   - Stand alone facts
+                                 -Features eg What are the features of the system?
+                                -Capabilities  eg What are the capabilitys of the system ?
+                               
+                               Visual notes eg Diagrams
+                                               > Service diagrams
+                                               > Network diagrams
+                                               >Process diagrams
+
+                              Cartoons:Simple stick figures with sp[eech ballons or any otrher item which can help in memory recall.
+
+IMPORTANT:The speaker says that whatever form the notes are taken in they should be avaiable, to hand and look at them just before going into the exam.
+
+
+
+
+Be mentally and physically prepared (3m 44s)
+-Know the topics: Learn the material
+- Know your learning style
+-Test myself >Test the knowledge,
+              > Improve in weak areas
+  -Repeat: Repeat the process until the knowledge is bedded in.
+
+Physical Preparation
+             -Sleep well
+            -Exercise
+             -Drink plenty of water.
+             -Eat health food
+            -Think positive 
+
+IMPORTANT: Mental and physical preparation are key to exam success
+
+
+
+
+
+Take the exam
+            -Get familiar with thwe sample questions available from Amazon
+            -Read the Case Studies in the AWS documentation: They give a scenario and provide a solution as to how that problem was solved.This is what thte Architect exam is all about.
+
+
+
+****************************************************************************************************************************************************************
+***********************************************************ITEM 2 ********************************************************
+                           AWS Certified Solutions Architect - Associate (SAA-C02): 1 Cloud Services Overview
+
+*************************************************************************************************************************************************
+1.Cloud Computing Overview
+Cloud Computing defined(8m 8s)
+Q1:What is Cloud Computing:
+A: Its an Internet based solution.It operates on servers that are connected to the Internet.ie Dropbox(Storage in the Cloud) Google, Micosoft Azure, Amazon Web Services Its everything that you do on your local network except its being done in the Cloud
+-Cloud Computing is processing on the Internet or a private network  where the exact processor location is unknown
+-Use of AWS can reduce hardware, operatonal and deployment costs.
+-Cloud computing still uses servers, they are simply hidden from view.
+
+Q2:What are the benefits of Cloud Computing?
+  A:             -Reduced Hardware costs 
+                 Using the AWS Managment Console all of the servers required:ie Web server, Application Server, Database server, the network connections between them and the storage can be configured/created in a few minutes.
+                Reduced
+               -Reduce Operationasl Costs
+                Operational costs using AWS are in the 5-10%  region of what it would cost on-premises
+               -Reduce Deployment times:Using the AWS Console creating and configuring a Web server, an Application Server, Database server can be done in a few minutes not days, weeks or months as would be the case with on-premises.
+                Increased
+               -Increased resiliency : The ability to recover from  a failure or problem.AWS carries out healthchecks so that ifv an instance is unhealthy, a new one can be started immediatly and the user application continues running. All this is done automatically without any need for customer intervention.
+
+                -Increased Performance
+                 The customer can configure Auto-Scaling so that if a certain performance threshold is hit, new servers are added.Costs are only incurred as use increases. Using more AWS EC2, storage ect means more cost as sacale increase, no need to pay for it at the outset.
+
+              -Capacity
+               
+                
+                 
+
+Q3: What are the Cloud Computing Models?(video 9m 31s)
+Cloud Computing Models
+                        - Full Cloud Deployment:All the components are in the Cloud,Database,compute processing,general storage & application logic.Nothing is on-premises.
+
+                        - Hyprid Deployment:Some of the resources are on=premises and some on the cloud. 
+
+
+Q: What are the terms that are used in 	Cloud Computing
+ A:                        -Infrastructure as a Service(IaaS):	The entire infrastructure is in the cloud ie servers,possibly segments of networks and databases.
+
+                         -Platform as a Service(PaaS):The customer does not manage the infrastructure, they manage the applications that are deployed on the platform(s).
+
+                         -Software as a Service(SaaS):Thev customer uses the software they do not manage it, an example of SaaS is Google mail.
+
+Q4 :History of AWS:Why are things changed?Why are they the way they are?
+Q5: The AWS Platform :Understand the orgizational structure of the AWS Cloud.
+Q6:AWS Products Overview: Understand the range of products and what they offer.
+Q6: AWS Security and Compliance
+Q7:Regions and Availability : Understand where(physically) its stored and how its managed.
+
+Cloud Computing Defined( 
+
+
+****History of cloud computing (Video 6m 54s) Episode 1.04 Objective 1.2 Design highly available fault-tolerant architectures**********tolerant architectures**********
+Q: What was the first AWS solution?
+A:The first AWS solution was Simple Queue Service (SQS)(2004)
+
+Q:What is Simple Storage Service(SSS aka S3)?
+A: -Simple Storage Service (S3) (2006): It's a Service which allows the user to store objects in buckets.
+
+Q:When were EC2 introduced and what do they do?
+A: -EC2 instances(2006) :This allows the user to run virtual servers in the cloud.
+
+Q:When was Simple DB  solution introduced and what does it do?
+A:-Simple DB solution (2007): Database Access and utilization
+
+Q:What is Elastic IP, when was it introduced and what does it do?
+A:   -Elastic IP(2008):EC2  instances can use the static IP  address to connect to and be reached from the internet.
+
+Q: When was Virtual Private Cloud introduced?  
+A:   Virtual Private Cloud(2009)
+
+Q:When was Route 53 introduced and what does it do?
+A:  Route 53 (2010): Its a DNS  and domain registration service provided by AWS
+
+
+Q:When was IAM introduced?
+A:-IAM(2010)
+
+Q:When was Simple Notification Service introduced and what does it do?
+A:-Simple Notification Service SNS(2010):Its a web service that is used to manage the notifications for a web server, application, email and SMS.
+
+Q:When was ElastiCache introduced and what does it do?
+ 
+A:-ElastiCache(2011): It is a service which improves the performance of web applications by retreiving (frequently used) information from managed memory caches instead of relying entirely on slower disc-based databases.
+
+Q:When was CloudFormation introduced and what does it do?
+
+A:-CloudFormation(2011):Its an Infrastructure automation platform for AWS.It deploys AWS resources at scale in a speedy, efficent and secure way.
+
+Q:When was Simple WorkFlow Service introduced and what does it do
+
+A:-Simple Workflow Service(2012)SWF:It helps developers coordinate, track and audit multi-step, multi-machine application jobs.It is used to build scalable and resilient applications.
+
+Q:When was DynamoDB introduced and what is it?
+A:-DynamoDB(2012) Its a NoSQL database
+
+Q:When was AWS  OpWorks introduced and what is it?
+A: -OpWorks(2013)AWS OpsWorks is a cloud computing service from Amazon Web Services (AWS) that manages infrastructure deployment for cloud administrators. The service automates deployment, configurations and operational tasks for distributed applications.
+ 
+Q: When was Kineses introduced and what is it?
+A:-Kineses(2013) Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so that the customer can get timely insights and react quickly to new information
+
+Q:When was CloudHSM  introduced and what is it?
+A:-CloudHSM(2013) AWS CloudHSM   is a hardware security module (HSM) which  is a computing device that processes cryptographic operations and provides secure storage for cryptographic keys.
+
+Q:When was AWS Certification Program introduced and what is it?
+A:-AWS Certification Program(2013) It's a certification program provided by the Amazon Web Services that help you to validate your expertise in the cloud domain after passing the particular examination.
+
+Q: When was Redshift introduced and what is it?
+A:-Redshift(2014) It's a data warehous service in the cloud.
+
+Q: When wasCloudTrail introduced and what is it?
+A:CloudTrail(2015) AWS CloudTrail is an AWS service that helps the user  enable governance, compliance, and operational and risk auditing of your AWS account. Actions taken by a user, role, or an AWS service are recorded as events in CloudTrail.
+
+
+Q: When was DataPipeline introduced and what is it?
+A:Data Pipeline(2015) Data Pipeline is a service which helps the user reliably process and move data between different AWS Compute and Storage services,as well as on-premises data sources.
+
+
+
+Q:When was Web Application Firewalls introduced and what is it? 
+A:Web Application Firewalls(2015):Its a form of firewall that  controls the input/output of an application or service It uses a policy(s) based on rules to monitor and block communications. 
+
+Q: When was QuickSight introduced and what is it?
+A:-QuickSight(2017):It's  service which can be used to build interactive visualization  from the data.
+
+Q: When was Direct Connect introduced and what is it?
+A:-Direct Connect(2017):AVS Direct Connect is a network solution that allows the user  to connect local services to AWS cloud services without using the Internet. This way, by bypassing the use of the Internet, you (as the name suggests) directly deliver all data through a private network.
+
+Q:When was AWS Organizations introduced and what is it?
+A:-AWS Organizations (2017) AWS Organizations is an account management service which allows to manage multiple AWS accounts centrally. AWS Organizations helps the user  to centrally manage billing, control access, compliance, security, and share resources across  AWS accounts.
+
+Q:When was AWS EC2 Spot advisor and what is it? 
+- EC2 Spot advisor: The Spot Instance advisor helps the user todetermine pools with the least chance of interruption and provides the savings the customer will  get over on-demand rates. The customer should weigh their  application’s tolerance for interruption and their  cost saving goals when selecting a Spot instance.
+
+Q:What is Amazon Chime?
+A: Amazon Chime is a teleconferencing service, a communications service for online meetings.
+
+
+*******The AWS platform (Video 5m 39s) Episode  1.05   Exam Objective 1.2  Design highly available and/or fault-tolerant architectures*********
+
+
+Q: What is  everything that  Amazon offers, built on top of?
+A: It's built on top of Compute capabilities.Its processors(in the cloud) memory, pull data from a source which could be a network source ,local storage source or remote storage source,
+
+Q: What does an AWS(Cloud) computer do when it computes?
+A: In short its a computer in the cloud.
+
+Q:Describe Amazon Storage and why it has to be in the cloud.
+A: With the storage in cloud its near the compute capability  which will make it more efficent in operations.
+
+Q:List the different types of storage offered by AWS
+a:Data can be stored as : 
+                         -Objects
+                          -Block-based storage
+                         - Amazon Cloud instances can even connect to storage from other cloud providers.
+Q:Describe the database types(functionality) that AWS  provides to its customers
+A:AWS  provides their own custom databases and they also provide other standard databases such as MySQL
+
+Q:Describe  what is meant by a Virtual Private Cloud(VPC)?
+A:A VPC  is a network of vm's in the cloud.Some of the vm's may be able to talk to the internet or receive communications, some may not
+
+Q:What are the four Foundational Elements of the services which AWS  provides?
+A: The four foundationl elements are;
+                                     -Compute eg EC2's
+                                     -Storage eg S3
+                                     -Databases eg RDS
+                                     -Networking
+                                      - There is also Security eg IAM
+
+
+07-11-21 @16:00
+ Everything up to this point is now in Anki
+
+**************************************************************** 2 AWS Cloud Services**************************************************************
+
+
+
+ ************AWS services, part 1 (video 9m 53s)Episode 1.06 Exam Objective 1.2  Design highly available and/or fault tolerant architectures*****************
+
+Q:What are the key things that I need to know for AWS Certification?
+A: You need to become familiar with the four key areas:
+                                       - Compute: EC2, Lightsail,ecs,EKS,Lambda,Batch and Elastic Beanstalk, The four most important ones are: 
+                                                                                                                            (1) EC2 THIS IS THE PRIMARY FOCUS of the exam.This is about manually configuring an instance and                                                                                                                                                  then launching it.
+                                                                                                                            (2) Elastic Beanstalk: This automates the process of creating and launching the instance. Become familiar with                                                                                                                                 this service.
+                                                                                                                            (3) Lambda this is important particularly in relation to web applications.
+                                                                                                                            (4) Elastic Container Service
+
+
+                                                        -Storage: 
+                                                               (1)S3,
+                                                               (2)EFS = The Elastic File System. For the exam understand how tthe file system works within the EC2 connections.
+                                                               (3)Glacier = Its a data archive, for long term storage
+                                                                (4)Storage Gateway = This is what allows the user to access storage that is in the cloud.
+                                                      
+                                                        -Database
+                                                                (1) RDS = Relational Database Service Unmderstand this system for the exam.
+
+                                                                (2)DynamoDB = A NoSQL database, understand this for the exam.
+                                                                 (3) ElastiCache =Data is retained in memory for faster retreival.
+                                                                  (4) Neptune = Not much about this on the exam
+                                                                   (5)Amazon
+                                                        -Managment tools
+
+Q:What is the Migration Hub?
+A: Its a way of taking existing existing VMWare or Hyper-V vm's and transferring them into AWS as an instance.
+
+
+Q:What is Snowball?
+A:Snowball is a data transport service for large chunks of daata ie tetra or petabytes.Its a computer which AWS  supplies the customer with who can then transfer their data into it. The data is then sent to AWS who can import it into the Region that the customer specifies..The benefit of Snowball is that the customer does not have to upload large amounts of data ie 10-15 tetrabytes across a slow internet connection.
+
+Q: Describe what is meant by Network and Content delivery
+A:This is about virtual networking,Virtual Private Cloud,CloudFront,Route 53,Direct Connect
+
+Q:What does CloudFront do?
+A:CloudFront is a Content Delivery Network which enables  data to be distributed to numerous Edge locations/Data centers distributed worldwide where someone may be accessing a website
+
+Q: What is Route 53?
+A:Route 53 is a Domain Name System(DNS) which translates human-readable domain names such as www.amazon.com to machine-readable IP addresses such as 192.0.2.44
+
+Q:What is AWS Direct Connect?
+A: Direct Connwect is a peer-to-peer file sharing protocol, clients ie AWS user environments connect to a central hub and can then share files witth each other.
+
+Q:What is CloudWatch?
+A:  Its a monitoring service which allows the user to monitor the performance of their AWS  resources and applications.
+
+Q: What is CloudFormation?
+A: CloudFormation is an infrastructure  automation platform.Its a way of deploying resources at scale in a fast, efficent and secure way.
+
+
+Q:What is CloudTrail
+A: CloudTrail is a service which records and tracks all AWS API  calls made
+Q: Developer tools
+A:
+
+Q:Managment tools
+A:
+
+Q:What is OpsWorks
+A: OpsWorks is a server configuration and automation tool.Scaling up an application automatically is what it does.Set up and configure what the application needs once, OpsWorks will then replicate(scale up/down) as need be.The user does not pay for OpsWork, they only pay for the resources used.
+
+
+Q:What is Trusted Advisor?
+A:Trusted Advisor is an AWS inspection service which inspects the customer AWS environment and makes recommendations where o[ppurtunities exist to save money, improve system availability and performance or help close security gaps.
+
+Q:Config and Service catalog
+A:
+
+Q:Managed Services and System Manager
+A:
+
+
+***********************************COMPUTE AND STORAGE ARE THE TWO BIGGEST AREAS COVERED ON THE EXAM**********************************************
+
+
+
+***********************AWS services,part 2 (Video 7m 36s) Episode  1.07,  Objective 1.4  Choosing appropriate resilient storage ***************************
+
+Media Services
+Q:What are Media Services?
+A: Services for
+              -streaming media,
+               -for transcoding media to convert it from one codec to another, 
+                -to use AWS Rekognition to do text recognition within videos
+
+
+Q: Describe Machine Learning?
+A: Machine Learning is about high end analytics, understanding patterns and information out of data sets.
+
+
+Q:Why is AWS Rekognition considered to be Machine Learning?
+A:AWS Rekognition is an analysis app for visual analysis.
+
+Q:  What is AWS Kinesis?
+A: Kinesis is an AWS  service for processing Big Data, hundreds of tetra bytes an hour. This is an important thing to know about for the Certification exam.
+
+NOTE: IAM  is a key part of this Certificatiobn exam !
+
+Q:What is  AWS Cognito?
+A:AWS Cognito lets the user add sign-up,sign-in and access control to web applications and mobile apps quickly and easily.Cognito supports sign-in with social identity providers such as Apple, Facebook, Google and Amazon,using SAML 2.0 and OpenID Connect
+
+Q:What is Inspector?
+A:AWS Inspector is an automated security assessment service to help improve security and compliance of applications deployed on AWS.
+
+Q:What is AWS Organizations?
+A: AWS Organizations is an account managment service that enables the consolodation of multiple AWS  accounts into an organization that has been previously created.
+
+Q:What is CloudHSM?
+A:AWS CloudHSM allows a user to securly store encryption keys and perform cryptographic operations on a HSM  device. 
+
+Q: What is a Directory Service?
+A: It's MS Active Directory(AD)  in the Cloud.Authentication, Authorization and Accountability services in the Cloud
+
+Q: What is a web application firewall(WAF)?
+A:  AWS WAF is an application firewall helps protect web applications against common web exploits and bots .It does this by controlling the input/output or system calls of an application or service.This is achived using a set of rules and security policies.
+
+
+
+Q: What is  AWS Shield?
+A: AWS Shield  is a managed Distrubted Denial of Service (DDoS) protection service which provides always-on detection and automatic inline mitigation that minimize application downtime and latency.
+
+
+NOTE:AWS Cost Management  is a key part of this Certificatiobn exam ! ie.What is the cheapest way to do something.Underststand how to use AWS services in the least expensive way.
+Q: Whats one key difference between Glacier and S3?
+A:Glacier is less expensive storage compared to S3
+
+Q:Describe AWS  Cost Managment.
+A:AWS Cost Management is ac set of tools to view detailed information about their AWS cost and resource use.It helps user analyze their costs,usage trends and take action on their insights. 
+
+
+Q:Describe Mobile Services
+A:AWS Mobile Services is a range of tools and services which can be used to build mobile application .It includes services such as thye following:
+                                                                  -AWS Amplify:Manages the backend(dB)of the app.
+
+                                                                   - Amazon Cognito
+                                                                
+                                                                   -Amazon Pinpoint : Send targeted messages to users
+                                                              
+                                                                    - AWS Device Farm: AA mobile  app testing service.
+
+                                                                   - AWS AppSync: Securly handle data management tasks suchn as data access, synchronization and manipulation across multiple sources.
+
+Q:What is  Augmented Reality (AR)?
+A:AR  is an interactive experience of a real world environment where objects that reside in the real world are enhanced by computer generated perceptual information.
+
+Q:What is AWS WorkSpaces?
+A: WorkSpaces is a Windows Desktop environment in the AWS Cloud.
+
+Q:What is AWS AppStream?
+A: AppStream is an application streaming service that runs apps in the Cloud and provides users with access to their apps from anywhere.
+
+
+Q: What is Virtual Reality (VR)?
+A: VR is a simulated experience that can be similar to or completely different from the real world
+
+Q:What is Amazon Sumerian?
+A: Amazon Sumerian is a managed service and set of tools for creating augmented reality(AR) and virtual reality (VR) applications.
+--Application Integration--
+Q:Describe Simple Notification Service(SNS)*************************NOTE:SNS IS VERY IMPORTANT AND NEEDS TO BE UNDERSTOOD FOR THE EXAM******************************
+A:SNS  is a managed service that provides message delivery ie emails/SMS  texts from a publisher  to a suscriber. Its about getting NOTIFICATIONS when problems happen, threasholds are reached, a certain product is ordered a certain amount of times ect.
+
+Q:Describe  Simple Queue Service.(SQS)*************************NOTE:SQS IS VERY IMPORTANT AND NEEDS TO BE UNDERSTOOD FOR THE EXAM******************************
+A: It allows the user to handle application based on requests coming into a queue and then processed out of the queue  IN ORDER OF PRIORITY oe as quickly as possible.
+
+NOTE:The Foundational Services are the most important ones to know for the exam ie 
+                                                                                 COMPUTE,
+                                                                                 STORAGE,
+                                                                                 DATABASES
+                                                                                 NETWORKING
+
++++++++++++++++++++++++++++++ Security and Compliance  Episode 1.08(video 6m 42s) Exam Objective 1.2  Design highly available and/or fault tolerant architectures ++++++++++++++++++++++++++++++++++++
+
+
+Q:If sensitive data is being uploaded to the Cloud how does the user know that they are in compliance with regulations?
+A:
+
+Q:What is the Payment Card Industry Data Security Standard(PCIDSS)?
+A:
+
+Q:What are  HIPPA regulations?
+A:
+
+Q:What is Amazon's responsibility when it comes to security?
+A:
+
+
+Q:What is the customers responsibility when it comes to security?
+A:
+
+***************************************Regions and Availability Episode  1.09(video 6m 26s) Exam Objective 1.2  Design highly available and/or fault tolerant architectures *********************************************************
+
+Q:Describe what is meant by Regions and Availability Zones
+A:An Availability Zone is 1-6 Data Centers....
+
+Q: What is known about the global network of AWS Availability Zones?
+A:
+
+Q:What is an Edge Area?
+A:
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 2 STORAGE DESIGN++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Q:What does iSCSI  stand for and what does it do?
+A: iSCSI = Internet Small Computer Systems Interface Its an IP-based storage networking standard for linking  data storage facilities.Its used to facilitate data transfer over intranets and to manage storage over long distances. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

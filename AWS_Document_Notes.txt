@@ -1,0 +1,7 @@
+15-11-21 @15:03 Amazon FSx there are several questions on the exam about this
+11-11-11 @14:40 Added more Q&A's in the Lesson 32 section
+10-11-21 Added more stuff up to and including all questions in Lesson 31 of the Technical_Essentials doc on TCS Laptop.
+09-11-21@19:08 Added more to Technical_Essentials doc mainly Module 3 AWS Networking. All this needs to be copied into Anki.
+08-11-21@16:56 Created : Prepare_for_the_AWS_Certified_Solutions_Architect_Associate_Exam_2_Storage_Design.txt
+07-11-21@18:14 Prepare_for_AWS_Certified_Solutions_Architect_Associate_Exam_SAA_CO2:Everything up to :2 AWS Cloud Service is now in Anki
+07-11-21@18:19:AWS_Technical_Essentials: Everything up to and including Lesson 28 is now copied onto my own PC, It still has to be copied into Anki.

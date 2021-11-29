@@ -1,0 +1,543 @@
+*******************Storage services(Episode 2.01, Video 6mins 31 secs) Objective 1.4 Choose appropriate resilient storage**********************************
+Q1: What are the storage services available from AWS?
+A1:The storage service availble from AWS  are:
+                                                        :Simple Storage Service(S3)= Object level storage
+                                                        :Glacier = This is for storing large amounts of data that is not accessed frequently or rquires instant access.
+                                                        :CloudFront = Information that is accessed frequently is cached at an Edge Location near to the customer.
+                                                        : Elastic Block Store (EBS)= This is the best storage option to use when instances need very fast access at block level
+Q2:What is the Storage Gateway and what does it do?
+A2:Its an appliance hardware or software that put on the local network either as a software appliance or a hardware appliance that acts as a VPN connection into the Amazon Cloud so that storage can be accessed as if it were local storage.
+
+
+Q3: What is the Snow Family?
+A3: The Snow Fmily is a collection of three primary products that can  be used to migrate  data from a local store(s) into the Cloud.
+
+Q4: Where is Block storage used?
+A4:Block storage  is used on local networks.
+
+Q5:what is iSCSI
+A5: It's  an acronym for Internet Small Computer Systems Interface, an Internet Protocol (IP)-based storage networking standard for linking data storage facilities. It provides block-level access to storage devices by carrying SCSI commands over a TCP/IP network.
+
+Q6: How does file storage differ from block storage?
+A6:File storage is concerned with objects/chunks of information, AWS   uses File  Storage  for   this purpose.
+
+Q7: Describe File Storage?
+A7:File Storage is used all the time on local networks with NAS  devices
+
+Q8:What is a NAS  device?
+A8: Network-attached storage(NAS) is a file-level computer data storage server connected to a computer network providing data access to a heterogeneous group of clients.
+
+Q9:What are the factors that need to be considered when selecting a storage service?
+A9: SIZE: The size of each object(file)  and the amount of total storage  required has to be considered.
+   PERFORMANCE: ie speed of access, how quickly can a user get access to objects stored?
+   COST:S3  will provide much faster access than Glacier but it will be much more expensive.
+*********************************************************************************************************************************************************
+
+****************** S3  storage class (Episode 2.02, Video 7mins 22 secs Objective 1.4 Choose appropriate resilient storage)
+
+S3 WILL DEFINITLY BE ON THE EXAM
+Q10:What does S3 do?
+A10:S3 stores objects.An object can be a file or any big chunk of data.
+Q12:How does S3 store objects?
+A12:S3 automatically distributed objects across at least three Availability Zones by default.This ensures that if one server is down the object will still be available in a bucket
+
+Q13: Describe 1A  class of storage and how it differs fro m standard S3 storage.
+A13  1A class of storage uses only one AZ of storage, not three AZ's  as is standard.A1  storage is cheaper but its less available and less recoverable.
+
+Q14:What is meant by Data Classification?
+A14: Data can be classified as follows:
+                                     - Security purposes
+                                     -Managment of data
+                                     Automated processing of data can then take place, base on the classification of the data.
+
+
+Q15: How is data placed in an S3 bucket?
+A15: 1: API's
+   2:Amazon Direct Connect = Creates a VPN connection from the users business network into AWS
+   3: Storage Gateway = Data can be stored locally (on the Cloud) and replicated or synchronized into an S3 bucket.
+   4:Kinesis Firehose = It a way of getting large amounts of anyalithical data into S3
+   5:Transfer acceleration = Its based on cloud front technology which creates an optomized route into  the S3 buckets. Transfer Acceleration will cost more than standard.
+   6 Snow family of products
+                            -Snowball  =1 Petabyte of data
+                           - Snowball Edge = 1 Terabyte, It's a device that the user can have on-premises and transfer the datainto it. The device is then brought back to AWS and the data is transferred into the Cloud.
+                           - Snowmobile = A large trailer/data centre on wheels  that is sent to the user location along with AWS staff. Each trailer can store 100 petabytes of data           1000 petapytes = 1 Exabyte
+
+***************************************************************************************************************************
+
+*********************S3 terminology (Episode 2.03, Video 9mins 25 secs Objective 1.4 Choose appropriate resilient storage)******************************************************
+NOTE:The emphasis in this exam is on designing the structure of AWS services that meet the needs of the organization.
+Q16:What is an S3 bucket?
+A16: A bucket is a "container" that  can store an unlimited number of objects.
+
+Q17:What is meant by "eventual consistency"?
+A17:As a bucket can exist in three AZ's at the vsame time, there might be inconsistencies for anythin between milli-seconds to minutes , but eventually there will be consistency
+
+Q18: What's an object?
+A18: It's a file but they call it an object.
+
+Q19: What'a a key?
+A19: A Key is similar to a file name.
+Q:
+
+Q20:What does every S3 bucket have?
+A20:Every S3 bucket has a URL.
+
+Q21: What is a good use of S3  buckets?
+A21:S3 buckets are ideal for static websites.NOTE Keep this point in nmind for the exam.
+Q23:What is the S3 API?
+A23:The S3 API  is a ReST (Repersentational State Transfer) interface.The commands available are  the http methods, PUT and POST. Effectvely its CRUD operations being carried out via the PUT and POST.
+
+Q24:Give examples of howe HTTP  methods implement CRUD methods?
+A24: Create uses PUT  or POST
+    Read  uses GET
+    Update uses POST or PUT
+    Delete uses DELETE
+
+Q25:What does a ReST API  do?
+A25:The ReST API  maps CRUD  methods to HTTP  methods.
+
+****************************************************************************************************************************************************************************
+
+********************************* S3 Advanced features (Episode 2.04, Video 7mins 49 secs Objective 1.4 Choose appropriate resilient storage)***************************************************************
+Q26:So why bother learning/remembering all this stuff about S3 Buckets?
+A26: Knowing these details will in the exam, as it will be easier to figure out the right answer.
+
+Q27: Why is it neccesary to understand the key concepts within the S3  storage system?
+A27: Understanding the key concepts of the S3 Storage system helps the user to better structure organize structure so that data is stored in te most cost effective way in S3.
+
+
+Q28:Explain what is meant by prefixes and delimiters?
+A28:A  prefix is just a word, string of letters/characters or numbers and a delimiter is the slash mark that seperates one prefix from another before the final object.It looks like a folder structur but its not.
+
+Q29:Why are there different storage classes?
+A29:Different storage classes exist so that data can be stored and accessed for different periods of time and with different levels of accessibility.
+
+Q30:List the different storage classes.
+A30: The storage classes are:
+                         - S3 Standard = Most Expensive. 
+                         - S3 Infrequent Access =
+                         - S3 Reduced Redundancy Storage =  Cheaper than Standard or Infrequent:Its the least tolreable to failure,least available
+                         - S3 Glacier = Cheapest for storage,however the price can rise very steeply if the user recovers more than 5% of total data in one calender month.
+
+Q31:What is Object Lifcycle Managment
+A31:Object Lifecycle Managment  is  a means of managing the S3 Storage classes in the most efficent/least expensive ways. The user can specify that data is moved to different classes, in order to minimize costs.An example being of data in 	S3 Standard class which is moved to S3 Infrequent Access class after 60 days and after a further 60 days is moved to S3 Glacier. The data object remains at all time within the Bucket in which it was created.
+
+Q32:Explain what is meant by Server-Side Encryption
+A32:The data is encrypted after the filer is sent to the server. Once the file is uploaded to the S3 Bucket,AWS  does 256-bit encryption automatically.Likewise if someone requires the file it will be decrypted automatically. The file is not encrypted in transit.
+
+Q33: Explain what is meant by Client-Side Encryption?
+A33: The file is encrypted on the Client side and then uploaded to the S3 Bucket,so its encrypted during transit.
+
+Q34: With Client-Side Encryption what is the user required to keep?
+A34: The user needs to keep/maintain keys on the Client side to decrypt the file locally.
+
+Q35: Explain  what is meant by versioning?
+A35:Versioning allows the user to have multiple versions of the same object in the S3 Bucket.
+
+Q36:What should the user bear in mind about Versioning?
+A36: Versoning is not turned on by default, the user must enable it and once it's enabled it can't be disabled, however the user can make it so that it's not active.
+
+Q37:Why is it not allowed to disable versioning?
+A37: It would then be Amazons responsibility to figure out which versions to keep and which ones to discard.
+
+Q38: What is 256-AES Encryption?
+A38: It stands for Advanced Encryption Standard.Its used by the U.S. goverment, AWS and others(?) to encrypt sensative data.
+
+Q39:Explain how Multi-Factor- Authentication Delete work?
+A39: In order to Delete a file the user , while logged in must provide a code that has been sent to their mobile phone/tablet in order to delete the file.
+
+Q40:What is meant by Multi-part upload?
+A40:A  large file,usually several Gigabytes in size  is uploaded in multiple streams so that it uploads faster. The file is then reassembled on the server side.
+
+
+Q41:What is a range GET?
+A41:A user may require data in a  large dataset object (stored in an S3 bucket ) ,from one point to another, this is known as a range GET.
+
+Q42: Give an example of a range GET.
+A42:A user may request data in the range 10 kilobytes to 20 kilobytes.
+
+Q43:What is Cross-Region replication?
+A43:Cross-Region replication indicate that an S3 Bucket in one AWS Region is also present in another AWS Region
+
+Q44:What should the user bear in mind when enabling replication?
+A44:Only new data that is being added to a bucket is being replicated, not anything that is already there.
+
+Q45:What is the purpose of Logging in S3?
+A45:A Log(record)adding, deleting, changing things in the bucket gets logged. 
+
+Q46:Describe how Event Notification are used with Logging.
+A46:An Event Notification in the form of an email or SMS  can be sent from the publisher(S3 bucket)) to a subscriber when certain events are logged/recorded.
+
+====================================================================================================================
+********************************* Lab:Creating S3 buckets (Episode 2.05, Video 7mins 49 secs Objective 1.4 Choose appropriate resilient storage)*******************
+
+  
+Q47:What are the steps needed to create an S3 Bucket?
+A47:    1 Click on Create Bucket
+      2 Create(write) a Fully Qualified (DNS) Domain Name aka FQDN =  mycompany.portal.company.com.
+                                                                      mycompany is a host in the portal sub domain of company.com
+       3  A Bucket name must then be created which can be inserted into the FQDN.The entire thing must be a (globally)unique across all existing  bucket names in S3.
+  
+      4:Confguring properties,several options available: Keep all versions of an object in the bucket to enable versioning.
+
+                                                         :Enable Logging
+                                                          
+                                                         : Create Tags for each bucket 
+                                                         : Automatically encrypt  objects stored in the bucket.(This is server side encryption)
+
+                                                          : Enable CloudWatch.The user can monitor the bucket metrics.
+
+                                                         :The Owner of the bucket can rant access to the bucket to selected users.
+                                                         :Add accounts to the bucket.
+                                                         : Manage permissions on ther bucket ie grant public read access to the bucket, anyone can access and download files                                                            from the  bucket.
+      5: When the user has made a selection of options , a review of the changes made will be available, ifd everything is correct the user can then click the Create bucket button and the Bucket is created.
+       6
+                                                         
+
+Q48: On the S3 console there is a tab marked PROPERTIES,what does this provide?
+A48:Access to all of the configuration items ie Versioning,server access logs,static website hosting ect are provided in this tab.
+
+
+
+===============================================================================================================================================
+
+*********************************  S3 bucket properties (Episode 2.06, Video 8mins 5 secs Objective 1.4 Choose appropriate resilient storage)*******************
+
+Q49:How can the Storage Transition  be used?
+A49: The user can set it so that data can transfer to infrequent  access(the figure of 30 days is used). A further transition can be set which moves the data to Glacier after 60 days.This helps to minmize storage costs.
+
+Q50:Describe the AWS Key Managment Service.(KMS)
+A50:KMS  is a managed service which allows users to create and control keys used for data encryption on the server side ie before download.This does  not provide transit security
+
+Q51:How shouldpermissions be applied to S3 Buckets and the objects which are stored within those buckets?
+A51: Apply the permissions at bucket level as the objects will inherit the bucket permissions
+
+Q52:Can Bucket permissions at object level be overridden?
+A52:Yes, Inherited permissions at object level can be overridden.
+
+
+Q53:What should the user bear in mind when granting public access to a bucket?
+A53: Granting public access to the bucket means that the entire world has complete freedom to access, read and change bucket permissions.
+
+Q54:What is Java Script Object Structure ?
+A54:Its the old way of writing bucket policy which can still be used but  visual editors which make the of of writing the policy are also available.
+
+Q55:What is CORES?
+A55:CORES = Cross Origin resource Sharing.Its a browser mechanism which enables controlled access to resources located outside of a given domain.
+
+
+
+_________________________________________________________________________________________________________________________________________________________
+
+********************************* Lab:Managing S3 buckets (Episode 2.05, Video 11mins 13 secs Objective 1.4 Choose appropriate resilient storage)*******************
+
+
+Q56:Whats this video about?
+A56:It's about putting objects in Buckets and managing them.
+
+
+Q57:What is an Amazon S3 master key?
+A57: It's the AWS AES-256 Encryption algorithm  AES = Advanced Encryption Standard
+
+Q58:How are the bucket tags used?
+A58:A tag can be used to modify an S3 bucket, add permissions, enable versioning ect
+
+
+
+=================================================================================================================================================
+*************************************************************** 2 Additional AWS Storage Services*************************************
+========================================================================================================================================
+
+************************************************************************Amazon Glacier********************************************************************
+Q59: What is Amazon Glacier?
+A59 Glacier  is an archival data storage solution.Its for storing data that does not have to be accessed every day but which should be available if need be.It also costs a lot loess to store data in Glacier.
+
+
+Q60:How much does Glacier costs to store data?
+A60:It can be fractions  of a penny per gigabyte per month to store data on Glacier.
+
+Q61:How is data accessed on Glacier?
+A61: There are three access methods when usin Glacier:
+                                                   - Expidated: Data can be retreived in 3-5 minutes.Its the most expensive way.
+                                                   - Standard : Data can be retreived in 3-5 hours
+                                                   - Bulk: Data can be retreived in 5-12 hours
+Q62:What is meant by a Vault?
+A62:When multiple AWS user access the Glacier store it is then known as a Vault.
+
+Q63:What must the user first do when creating a Glacier store?
+A63: The user must specify the Region  in which the (Glacier) data is to be stored.
+
+Q64: How is data store in Glacier?
+A64:Data is encrypted by default using AES 256-bit encryption
+
+Q65:What relationship is there between Glacier and S3?
+A65: Glacier is an S3 Storage class.
+
+Q66: How can a Snow(family) device be used in relation to Glacier?
+A66:Snow devices can be used to import data into Glacier.
+
+Q67:How can Storage Gateway be used with Glacier?
+A67:Storage Gateway can connect to Glacierand the Storage Gateway can be an access point  to Glacier.
+
+Q68:Explain what is meant by Archives in the context of Glacier?
+A68:Archives objects(files) which can be stored on Glacier,when stored in Glacier the object becomes known as an archive.
+
+Q69:What is a Vault lock?
+A69:The Vault lock is a way of securing access to the data so that only authorized people get access to it.
+
+Q70:What should the user bear in mind in relation to storage costs and Glacier?
+A70:Up to 5% of data can be retreived each months at no extra charge,.However there is no rollover from one month to another. 
+
+Q71:How can a vault be configured to limit costs?
+A71: -The type of retreival can be specified.
+   - The user allowed to retreive the data can be specified.
+   - A vault Master can be designated.The Vault Master can decide if extra costs can be incurred if the 5% per month data retreival limit has to be breached.
+
+
+
+
+***************************************************************** Lab: Setting up a Glacier vault(Learning Objective 1.04)*********************************************
+
+Q72:How is an instance of a  Glacier vault created?
+ A72:Glacier vaults are created via the AWS Glacier Managment Console.
+
+Q73:If the user wants to put data in Glacier manually, what must they do?
+A73:To manually put data in Glacier the user must create their own Vault.
+
+Q74:What are the steps involved in creating a Glacier instance?
+A74: > AWS Services Interface(Main Menu)
+   > In the Storage tab SELECT Glacier
+   > In the Glacier interface SELECT Create Vaults Links to  Learning materials are provide to the user, if they are not familiar with the process.
+   > Create Vault
+   > AWS places the Vault in the same  Region as the users VPC is. .The Region dropdown menu can be used to select a different Region.
+   > Give the Vault a name in the Vault Name field. Cliuck Accept
+   > The user can the select Simple Notifications Service(SNS). The SNS lets the user know when someone has retreived something from the Vault
+   > When the Vault has been created all other parts of AWS can put data into it.
+Q75: What is  the Simple Notifications Service(SNS)?
+A75:SNS is a messaging(notification) service
+
+Q76:Can the user acess the ARN  dirctly?
+A76:Yes, the user can go to the ARN  and upload files to it. 
+
+Q77:What is a Topic?
+A77:A Topic is a collection of notifications from various various sources. Its a collection of things that the subscriber is interested in, like a magazine.
+Q78:What options are available in relation to data retrevial from the Vault?
+A78: The options are:
+                   Free Tier only:       -No withdrawel above 5% per month
+
+                                         - Max Retreival Rate 
+                                         - No Retreival Limit   
+Q79:What is the Amazon Resource Name(ARN)?
+A79: The ARN  iis a unique(canonical) name which give3s the name of where the resource ie The Vault is located.
+
+Q80: Its the Max Retreival Rate?
+A80: Max Retreival Rate is a setting which can set the upper limit of data that can be retreived from Glacier via Vault in a set period ie one gigabyte per hour .The cost of the retreival will be displayed to the user.
+
+Q81:List the ways in whic data can be sent to the Vault
+A81: -Storage Gateway
+   - API's
+   -CLI
+
+Q82: How many Vaults can be created  by a single account in a Region?
+A82:Up to 1,000 Vaults can be creared by a singlle account per Region.
+
+Q83:What is the condition for deleting a Vault?
+A83: Only empty Vaults can be deleted.
+
+Q84:How can data be uploaded to a Vault?
+A84:Glacier supports multipart uploads of archives, so a large number archive does not have to be uploaded in a single action.
+
+
+
+
+
+************************************************************* S3  and Tape Gateway *******************************************************
+Q85:Why are tape backups still required?
+A85:A  lot of systems only have the option to backup to tape, so they are looking for a tape drive to do the backup to. Amazon provides a tape backup facility,it's called Tape Gateway.
+
+Q86: How does Tape Gateway work?
+A86: Tape Gateway integrates with S3
+
+Q87: Where is Tape Gateway located?
+A87: AWS Management Console >> Storage Gateway>> Tape Gateway
+
+Q88:List the types of Storage Gateways that are available?
+A88:                                     -File Gateway: Gives access to a file object.
+                                       - Volume Gateway:It allows access to EBS volumes.
+                                       - Tape Gateway:
+   
+Q89: How is the use of   Tape Gateway enabled ?
+A89: If Tape Gateway is selected a host platform must then be selected on which to host it ie EC2  
+
+Q90:What sequence of activitys needs to be carried or to enable the Tape Gateway and why?
+A90:The EC2  instance needs to be launched first.If the user intends to back up their on-premises data in the cloud then  a public endpoint in a VPC  has to be created. 
+
+Q91: What is a Virtual Tape Library(VTL)?
+A91`:   A VTL is a collection of tapes that can be backed up to. In reality its an object stored in an S3 Bucket in the Cloud.The S3 Bucket will have been configured to be a Glacier Deep Archive , so as to store the "tapes" in the least expensive way.         
+
+********************************************************* S3 enhanced features Objective 2.2 Select High -performing and scalable storage solutions for a  workload *********************************************************************
+Q92:What is Intelligent Tiering?
+A92:Intelligent Tiering is the use of Lifecycle Rules by Default(Lifecycle Management) to implement Intelligent Tiering which is the creation of an automated transition of data to tiered storage.
+Q93:What options is the user presented with?
+A93: The system gives the user the option of the version to transition to? Current version or previous version?
+
+Q94:What should the user bear in mind when transtioning small objects?
+A94:Each transition has an associated cost and a cost base on the size of the file. If there are a lot of small objets then the cost will be greater.
+
+Q95:What is meant by Object Locking?
+A95:Object Locking is a file storage methodcalled write-once-read-many(WORM) The only time the file is modified is at creation.
+Q96: When can Object Locking be carried out?
+A96:Object Locking can only be done by the user during the creation of the S3 Bucket otherwise the user must contact Customer Services.
+
+
+********************************* Elastic Block Store (EBS) Episode 2.12 Objective 1.4 Choose appropriate resilient storage  ********************************
+Q97:What is EBS used for?
+A97: EBS  is used for durable storage in EC2's its like a hard drive.
+
+Q98:What sort of storage is available withb EBS?
+A98: -Magnetic  :Slowest but cheapest
+  - SSD(Solid-state-drive) Very fast chip based storage of data Available as :General Purpose SSD,
+
+  - Provisioned IOPS ->PIOPS =  Provisioned Input/Output operations per second
+
+EXAM TIP:If the exam question says that IOPS of 12,000 is needed, then vit has to be provisioned PIOPS,as provisioning guarantees that level of IOPS
+
+Q99:How the the performance capabilitys of SSD be taken advantage of when its used for EBS storage?
+A99:Use an optomized EBS instance.
+
+Q100:What are Snapshots?
+A100:They are (data) recovery concepts.The Snapshot can be used to duplicate an instance into another instance.
+
+Q101:What is Ghost?
+A101: It was a hard drive imaging tool used in the 1990's
+
+Q102:What is Volume Recovery?
+A102:If an EC2  instance fails, the EBS can be attached to another EC2 instance in order to access the data.  Its like pluggin/unplugging a hard drive
+
+
+Q103:What is Volume level encryption?
+A103:Its the encryption of the whole EBS volume
+
+
+
+
+
+****************************************************Lab: Creating  EBS  volumes Objective 1.4 Choose appropriate resilient storage******
+Q104: How is EBS  accessed from the AWS Managment Console?
+A104: Its under the EC2 tap.
+
+Q105:What is  Cold hard disc drive  and a Throughput Optomized  hard disc drive?
+A105a:Throughput Optomized hard disc drive is a magnetic drive which has 10.000RPM or higher
+A105b:Cold hard drive  means large and slow.
+
+Q106:What is the minimum and maximum size of an EBS volume that can be selected?
+A106:Minimum size =  1 Gigabyte, Maximum = 1 Terabyte
+
+
+
+
+************************** Elastic File System  (EFS) Objective 1.4 Choose appropriate resilient storage **********************
+Q107:What is it that's different about EFS?
+A107: EFS  is sharable.Multiple devices, ie EC2's can access an  EFS instance  similtaniously.
+
+Q108:How are folders organized in EFS?
+A108:Folders are organized as a hierarchical structure
+
+Q109:How can EFS  be accessed?
+A109:EFS  can be accessed using the Networkk File System(NFS)
+
+Q110:What does EFS cost?
+A110:EFS is free.
+
+Q111:What can be said about EFS  performance?
+A111:EFS has consistent low latency unlike S3  which can vary in terms of latency.
+
+Q112:How does EFS store data?
+A112:EFS stores data stores data reduntantly across multiple AZ's which is also true of S3.
+
+Q113:How does EBS  store data?
+A113:EBS stores data reduntantlyin a single AZ.
+
+Q114:What are the ideal use cases for EFS?
+A114:The ideal use cases for EFS are web server and content management.enterprise applications,media and entertainment...
+A:
+
+Q115:Is EFS  supported on Windows instances?
+A115:EFS is not supported on Windows Instances.Only Linux Instances can access an EFS  share that is created in AWS. 
+
+
+
+
+
+
+************************************************** Lab : Creating an EFS **********************************************************************
+Q116:What is a VPC?
+A116:A VPC  is a collection of resources in the Cloud managed by an AWS account holder.
+
+***************** EFS and PrivateLink Objective 3.3 Select appropriate data security  options**************************************
+Q117:What is PrivateLink?
+A117:PrivateLink is a service which allows an AWS account holder to connect to some AWS services hosted by other AWS  accounts.
+
+Q118:What is an Elastic Networ Interface(ENI)?
+A118:The ENI  is a Virtual Network Card that can be attached/detached to an instance within an AWS VPC
+
+******************************************Intro to Amazon FSx ****************************************************************************************
+Q119:What is Amazon FSx
+A119:Its a file system for the Cloud. It allows the user to implement differnt types of file systems such as the Windows file system.
+ &&&&&&&&&&&&&&&&&&&&&&&&&&& Amazon FSx there are several questions on the exam about this &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+Q120:What is the benefit of using Windows FSx?
+A120:It enables performance efficency.Folders can be created to store graphics which then undergo intense processing .
+
+Q121:What is SMB?
+A121:Server Message Block(SMB) Its a communications protocol for providing shared access to folders,printers and serial ports between nodes on a network. It also provides an authentication mechanism,inter-process communications(IPC)
+************************* Hands on with FSx Objective 2.2 Select high-performing and scalable storage soltions for a workload**********
+Q122:Which options does AWS  provide for FSx?
+A122: -Amazon FSx for Windows File Server
+   -Amazon FSx for Luster
+
+Q123:What is AWS Managed Directory?
+A123: AWS provides the Managed Directory
+.
+
+Q124:What is self Managed Active Directory?
+A124:The AWS user creates the AD themselves and configures the settings.
+
+*************************************************** Integrating on-premises storage ************************************************************************
+Q125:How is data on a local network put into the 	Cloud?
+A125: Its done using a VM,the choices are VMWare ESX or Hyper-V, They act as  a Storage Gateway
+
+
+************************************************* Lab: Storage access security*******************************************************************************
+
+Q126:Which commands do I need to know for the exam?
+A126: The high level commands which are used like s3api versus S3 need to be known.
+NB COME BACK TO THIS SECTION AND POIPULATE IT WITH   A FEW MORE Q&A's.
+
+************************************************** Storage performance ************************************************************************************
+
+Useful information for exam day
+"If there are any questions on the exam about IOPS>10000 then it has to be provisioned IOPS => PIOPS
+
+Q127:How can good performance from drives be guaranteed?
+A127:To get good performance some type of SSD has to be used.
+
+Q128: What is the minimum and maximum volume size  for general purpose SSD?
+A128:The minimal size is 1 GiB and maximum is 16 TiB.
+
+
+Q129:What is the minimum and maximum volume size for Provisioned IOPS?
+A129: 4 GiB  => 16 TiB
+
+                    
+
+
+
+
+
+
+
+
+
+
+

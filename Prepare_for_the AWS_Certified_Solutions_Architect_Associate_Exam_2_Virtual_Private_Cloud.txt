@@ -1,0 +1,274 @@
+            ================================================ 1 Amazon VPC Applications =====================================================================
+
+**************************Virtual Private Cloud (VPC)overview Video 9mins 54 secs Objective 2.3 Select  high-performing networking solutions for a workload*******************************************
+
+Q1:What is a Virtual Private Cloud?
+A1a:The VPC  is a service that allows the user to launch AWS resources in a  logically isolated virtual network whose configurations are set by the user.
+A1b: Its the public cloud within AWS with security around it , to give the user privacy.Its like a personel data centre in the Cloud.
+A1c:The VPCD  is a logical construct that is the entire virtuasl private network.
+
+Q2:What does the VPC  provide?
+A2: Applications which run on-premises or in the VPC
+
+Q3:What is VPC peering?
+A3: VPC peering is a technology which allows multiple VPC's to be directly connected to each other  in the AWS cloud.
+
+Q4:Can endpoints be created in A VPC?
+A4:Yes, endpoints can be created in the VPC and access to them controlled by policies. Endpoints can connect to resources such as AWS Glacier and another endpoint can connect to S3.
+
+Q5:What's the benefit of creating an endpoint in the VPC?
+A5: The endpoint can get a connection to outside resources such as S3  which are outside the VPC.
+
+Q6:What should the user bear in mind about the Default VPC?
+A6:The Default VPC   is created automatically for each user and should never be deleted as this will lead to problems with any other VPC's created by the user.
+
+
+*****************************************************************************************************************************************************************************
+
+**************************************Lab: Creating a VPC Video 10m 52secs Objective 2.3 Select  high-performing networking solutions for a workload ********************************************************************
+
+Q7:What does this video explain?
+A7:It explains how to create a VPC and creating subnetsw inside of the VPC's
+
+
+> AWS Management Console>Networking & Content Delivery>VPC
+ 
+
+
+Q8:What is an egress-only gateway?
+A8:Traffic can be sent out to the INTERNET but no traffic is allowed in.
+
+
+Q9:What does  CIDR stand for  and what can it be used for ?
+A9: Classless Inter-Domain Routing(CIDR) It's a way of assigning IP addresses.
+
+Q10:What is Amazon Direct Connect?
+A10:Direct Connect is a peer-to-peer file sharing service,it allows a user to establish a private connection between physical hardware and an Amazon VPC.
+**********************************************************************************************************************************************************
+
+******************************************************************* Lab:Configuring DHCP options Video 4mins 24 secs****************************************************************************
+
+Q11:What is a DHCP pool?
+A12:The DHCP pool is a range of IP addresses that the user sets when configuring DHCP  in a VPC.
+
+Q13:What is a DHCP  option?
+A13:It's a configuration parameter related to the IP  address protocol,the protocol that's used to get the IP addresses of a Client or a Server
+Q14:What are the DHCP  options?
+A14:  -Name
+    - Domain Name
+    - IP  address of the DNS Server of whatever/whoever it is that is being connected to.
+    - Time Server IP  address
+    - NetBIOS The user does not have to set this one.
+     -NetBIOS node types. The user does not have to set this one.
+ 
+**************************************************************************************************************************************************************
+
+*********************************************************Elastic IP addresses (EIPs) Video 6m 37secs******************************************************
+Q15:What is an Elastic IP(EIP)?
+A15a:An EIP is an IP which Amazon allocates to a user account., no one else can use it.The EIP  instance, is elastic as it can move from one instance to another.When the EIP  is created its permenantly allocated to the user account, until its released.
+A15b:AWS EIP is a static IP address designed for dynamic Cloud compute.
+
+Q:
+
+Q16:What are the costs of having and  using an EIP?
+A16:The account holder is charged for having an EIP even if they don't use it or have it associated with an instance.
+
+Q17:How are public IP addresses connected to EIP's?
+A17:The EIP is associated with an elastic network interface and that interface becomes the point at which the public IP can be used.
+
+Q18:What should be done if an EIP  is no longer required?
+A18: -Make sure the the EIP is not required,
+   - Validate ie check that it's not being used by any instances.
+   -Select the EIP address, it will show up in blue.
+    - Go to Actions
+    - Choose Release  => (automatic message)"Are you sure you want to release that address?"
+    - Click Release and it's now released.
+
+*****************************************************************************************************************************************************
+
+*****************************************Elastic Network Interfaces(ENI's)Video 4m 52 secs********************************************************
+
+Q19:What is an Elastic Network Interface(ENI)?
+A19:An ENI is virtual network interface that's attached to an instance. Its the same concept as having a network card(interface ) which plugs into a physical computer and then connects the computer(server) to a network.
+
+ ENI are only available within VPC's and they are associated with a subnet.
+Q20:Whats the benefit of using an ENI?
+A20:It allows dual-homing that is the server has a home on one subnet and also on another subnet.The analogy is that of a wall with SUBNETS on either side.One SUBNET  is trusted and the other SUBNET is not trusted.All traffic from the untrusted SUBNET has to be filtered and checked by the Firewall policy
+Q21:What are examples of dual-home devices?
+A21: A firewall is a dual-home device, a router is also a dual-home device.
+
+*************************************************************************************************************************************************************************************
+
+
+                                 ***************** Endpoints Video 7m 5secs************************
+
+Q22:What is an Endpoint?
+A22:An Endpoint is a connection that allows VPC's to access services.The Endpoint is a bridge out of a VPC to other Amazon managed services.
+
+Q23:How do AWS Endpoints differ from local network endpoints?
+A23:AWS Endpoints  are like proxies to (AWS) Sservices
+
+Q24:What are the steps required when creating an Endpoint?
+A24  -Specify the Amazon VPC that the Endpoint is being created for.
+   - Specify the service that the Endpoint should connect to ie the DNS  name com.amazonaws<region><service>
+    - Specify any policy that is to be associated with the Endpoint  to control how it works.
+   -
+  >VPC managment console>VPC Dashboard>Create Endpoint(if there are none existing)
+ >Choose a Service Category
+> or go to AWS Marketplace services
+>Select  Amazon S3  for example.
+>Configure  Route Tables wi9th the destination ie com.amazonaws.us-1.s3
+   -
+ *****************************************************************************************************************
+================================================ 2 Amazon VPC Peering=====================================================================
+
+**************************** VPC peering video 7m 48 secs  Objective 1.3 Design decoupling mechanisms using AWS  services **************************************************
+Q25:What is meant by VPC peering?
+A25: VPC  peering is a networking connection between two VPC's that enables the routing of traffic between them using IPv4 or IPv6 addresses.
+
+Q26: What is meant by saying that VPC peering is not transetive?
+A26:VPC peering allows the two VPC's involved to exchange data but does not enable traffic sharing with any VPC not directly connected to it, even if it's  on the same network. 
+
+Q27:What are the steps involved in initaing VPC peering?
+A27: -1 The owner of a VPC sends a request to another VPC  inviting it to initate peering. It must be the owner of the ini8tator VPC  that does this not just a user.
+   -2 Ensure that the VPC's to be peered have different subnets.
+
+
+Q28:Why is it not possible to initate VPC  peering where the CIDR  blocks overlap?
+A28:If the CIDR  blocks of the VPC's  overlap then they have the same IP address and it's not possible to route traffic between them
+
+Q29:When creating multiple VPC's what would a good practice be?
+A29: Keep a list in Excel of the VPC's that are created and ensure that each one has its own subnet
+**************************************************************************************************************************
+
+********* Creating a VPC  peering connection lab Video 9mins 53 secs Objective 1.3 Design decoupling mechanisms using AWS  services*************************************
+
+Q30:What are the steps involved in initaing VPC peering?
+A30:  -0 Validate that the VPC's exist.
+    -1 Ensure that the VPC's to be peered have different subnets.ie VPC 1=> 10.0.0.0/16  VPC2 => 10.11.0.0/16
+    -2 The owner of a VPC sends a request to another VPC  inviting it to initate peering. It must be the owner of the ini8tator VPC  that does this not just a user.
+    -3 The owner of the VPC which receives the request accepts the request.
+   
+    -4 Create Routes and Routing tables so that communications can flow between the two VPC's.
+    -5 Create a name for the peering connection.
+    -6 In the Routing Table of the initiator VPC search for the name of the named peering connection and select it.The Routing table will be updated.This will define/create the route to the requestor VPC
+     -7 In the Routing Table of the requestor  VPC search for the name of the named peering connection and select it.The Routing table will be updated.This will define/create the route to the initator VPC.
+
+Q31:What is Amazon Private Clouds?
+A31:Amazon Private Clouds are accounts which can be shared with other AWS accounts without the need to create a peering connection.
+
+************************************************************************************************************************************************************
+                           ================================================ 3 Amazon VPC Security=====================================================================
+
+    -*********************************************************** Security Groups overview Video 6mins 33 secs Objective 3.2 Design Secure Application tiers *************************************************************************
+
+Q32:What is an AWS Security Group?
+A32:An AWS Security Group acts as a virtual firewall for a user instance(EC2) and a set of rules within the security group controls the inbound traffic to instances and a seperate set of rules controls the outbound traffic.
+
+Q33:How are Security Groups assigned?
+A33:Security Groups are assigned  to instances. Therfore each instance(EC2) in a subnet on a VPC can be assigned to a differnt security group.
+
+Q34:How many Security groups can be assigned to an instance?
+A34:When an instance in a VPC is launched up to five security groups can be assigned.
+
+Q35:What is the default rule of any Security Group?
+A35:Deny is implicit in Security Group rules.The default thing is notb to let communications happen.
+
+Q36:What is meant by a closed system?
+A36: No communications can happen by default, it has to be explicitly allowed.
+
+Q37:What is meant by Stateful processing
+A37: If a communication originates within an instance and is sent out through the security firewall, the firewall remembers it and allows a reply to be receive by the instance.That is a Stateful firewall 
+
+Q38:How are Network Access Control Lists used within AWS?
+A38: Network Access Control Lists are attached to subnets and act like  real world physical  router ACL's  as made by Cisco
+
+Q39:What is the difference between Storage Groups and Network Access Control Lists?
+A39a:Storage Groups only have allow rules, deny is implicit, Network Access Control Lists have both Allow and Deny rules.
+A39b:Network Access Control Lists are stateless,they do not remember IP addresses ect.Storage Groups are stateful.
+Q40:How can Network Access Control Lists arranged?
+A40:The rules are given precedence numbers, lowest numbered rules are those which are executed  first.
+
+Q41:How are Network Access Control List rules implemented in practice?
+A41:If an action is being attempted and rule number 3 says it can be allowed then there is no need to process any further rules.Its the order of evaluation of the rules that decides if an action is allowed or dis-allowed.
+
+ 
+
+**************************************************************************************************************************
+
+*******************Network Address Translation(NAT) Video  10m 33secs ********************************************************
+
+Q42: What is Network Address Translation(NAT)?
+A42:NAT   is a way to map multiple private address to a public one before transferring the out to the public Internet
+
+Q43:What is a NAT server?
+A43:A NAT server/router is a device which takes a request from a private IP address, sends it to a public IP  on the Internet and returns the response to the private IP  address that the request came from.
+
+Q44:What is a NAT  instance?
+A44:The instance is implemented so that it is multi-homed, that it is implemented with a private and public subnet to which it is connected.Instances in the private subnet connect through the NAT  instance to get out to the rest of the world 
+
+Q45:What is a NAT Gateway?
+A45: A NAT Gateway is a service which enables instances in a private subnet  to connect to services outside the users VPC.
+Q46:How is an Elastic IP(EIP) address used with a NAT?
+A46:An EIP  is associated with a NAT  for the public-facing side
+Q47:How is a NAT instance created?
+A47: Do as follows:
+                1: AWS Managment Interface(Main Menu)
+                2:Go into EC2
+                3:Choose Free Tier
+                4:Go to Community AMI's and search for NAT.
+                5:Select Amazon Linux AMI which already has NAT  installed.
+                6:Launch  the AMI  instance and do the following:
+                                                                  > Create an Elastic IP(EIP) address and an Elastic Network Interface
+                                                                  > Connect the Elastic Network Interface to the instance and assign the EIP  address to that interface.This is now a public facing IP address.
+                                                                  >Connect a second network card to the local subnet within the users VPC -That creates a network that can be used.(This needs a diagram to explain it better)
+
+Q48:How is a NAT Gateway created?
+A48: Do as follows:
+                1: AWS Managment Interface(Main Menu)
+                2:Networking & 	Content Delivery
+                3: VPC => Select the NAT Gateway tab  To set up a NAT Gateaway an EIP  is required. > Select an EIP address.
+                4:Select the VPC
+
+                                                                  
+
+****************************************Gateways(VPG's and CGWs) Video 8mins 2secs  Objective 3.3 Select  appropriate security options*********************************************************************
+
+Q49:What does a Virtual Private Gateway (VPG)do?
+A49:A VPG  connects a local network  to a Virtual Private Cloud(VPC) The VPG enables the user to get a connection from a Data Center  into the Cloud so that data comunications can pass through it.Its like  connecting the the AWS Cloud via   a router into a local network. 
+
+Q50:What is a Customer Gateway(CGW)?
+A50: The CGW  is a physical device or a piece of software which connects to the VPG and thereby provides a route into the VPC.
+
+Q51:What is a hardware  VPN connector?
+A51:A hardware VPN connector is a physical device which allows  the user to connect into the  VPG at Amazon.
+
+Q52:What is AWS Direct Connect?
+A52:It's a service which enables a connection to be made between two VPC's   or to get a connection from a Data Center to  the Cloud.
+
+Q53:What is the VPN CloudHub?
+A53:VPN CloudHub is another way to set up a VPN connection.
+
+Q:Describe how to create a VPN Connection.
+A:
+
+
+
+
+***************************************************************************************************************************************************************
+
+
+************************************************ VPN configuration options  video 4mins 4secs Episode 3.12 Objective 2.3 Select high-performing solutions for a workload **************************************
+
+Q54:What is a split tunnel?
+A54: A tunnel which goes to the Cloud and a second branch which goes to the Internet.
+ 
+
+
+
+
+
+
+ 
+
+

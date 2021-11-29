@@ -1,0 +1,32 @@
+Q:How many cloud services does AWS offer a pay-as-you-go approach?
+A:Pay-as-you-go is available for over 160 cloud services.
+
+Q:How does the Savings  plans work?
+A:Savings Plans are offered as  1 and 3 year contracts.The plan offers lower prices on AWS Compute and AWS Machine Learning.
+
+********************************************************************************************************************************
+
+AWS Well-Architected
+
+Q:What are the five pillars on which AWS Well-Architected is basewd on?
+A:The five pillars on which the AWS Well-Architected is based on are:
+                                                                   -Operational Excellence :Running and monitoring systems to deliver business value.
+
+                                                                   -Security:Protecting Information and Security 
+
+                                                                    -Realibility: Ensuring that a workload performs its imtended function correctly and consistently.
+                                                                       
+                                                                     -Performance efficency: Using IT  and computing resources efficency.
+
+                                                                    -Cost Optomization: Avoiding unnecessary costs
+
+
+Q:What can the Well-Architected tool(wa tool) be used for?
+A: The WA tool can be used to evaluate workloads, identify high risk issues and record improvments.     
+
+***************************************************************************************************************************************
+
+AWS Well Architected Framework
+
+Q:What is the purpose of the AWS WA?
+A:The purpose of the WA is to enable the user to learn best practices for designing and operating reliable, secure, efficent and cost effective systems in the cloud.                       
